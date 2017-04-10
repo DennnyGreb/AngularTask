@@ -1,0 +1,207 @@
+/* ===== Fonts ==================================================
+   ========================================================================== */
+
+@font-face {
+ font-family: 'Open Sans';
+ src: url(../fonts/OpenSans-Regular.ttf);
+ font-weight: normal;
+}
+
+@font-face {
+ font-family: 'Open Sans';
+ src: url(../fonts/OpenSans-Light.ttf);
+ font-weight: 100;
+}
+
+@font-face {
+ font-family: 'Open Sans';
+ src: url(../fonts/OpenSans-Semibold.ttf);
+ font-weight: 500;
+}
+
+/* ===== Some Config ==================================================
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: 'Open Sans';
+    font-weight: normal;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ===== Custom Styles ==================================================
+   ========================================================================== */
+
+.main-aside {
+  width: 25%;
+  height: 100vh;
+  float: left;
+  background-color: #2B2F3E;
+  color: #434756;
+}
+
+.main-header {
+  margin: 0px;
+  padding: 25px;
+  font-size: 36px;
+  font-weight: 100;
+}
+
+.overview {
+  background-color: #FF3951;
+  margin-top: 65px;
+}
+
+.overview-span {
+  font-size: 18px;
+  display: block;
+  padding: 20px 30px;
+  color: #fff;
+}
+
+.main-section {
+  width: 75%;
+  height: 100vh;
+  float: right;
+  background-color: rgba(249, 249, 249, 255);
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border: 1.25px solid rgba(242, 242, 242, 1);
+  width: 43.5%;
+  min-height: 500px;
+  margin: 5% 0 5% 5%;
+}
+
+.card.right {
+    margin: 5% 5% 5% 0;
+}
+
+/* ===============
+    ALL: IE Fixes
+   =============== */
+
+.ie7 .title {
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1140px) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
