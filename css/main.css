@@ -84,14 +84,14 @@ textarea {
   height: 100vh;
   float: left;
   background-color: #2B2F3E;
-  color: #434756;
 }
 
 .main-header {
   margin: 0px;
-  padding: 25px;
+  padding: 20px 30px;
   font-size: 36px;
   font-weight: 100;
+  color: #434756;
 }
 
 .overview {
@@ -115,7 +115,7 @@ textarea {
 
 .card {
   background-color: #fff;
-  box-shadow: 1px 1px 1px 1px #ccc;
+  box-shadow: 1px 0px 1px 1px #ccc;
   border: 1.25px solid rgba(242, 242, 242, 1);
   width: 43.5%;
   min-height: 500px;
@@ -124,6 +124,122 @@ textarea {
 
 .card.right {
     margin: 5% 5% 5% 0;
+}
+
+.card .main-header {
+  padding-left: 23px;
+  padding-top: 5px;
+}
+
+.card .container {
+  padding-top: 0px;
+}
+
+.card.left .container {
+  padding-left: 30px;
+}
+
+.card.right .main-header {
+  padding-left: 20px;
+}
+
+.input-container {
+    margin-bottom: 30px;
+}
+
+.item-input {
+  width: 60%;
+  padding: 8px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.item-add {
+  width: 31%;
+  float: right;
+  height: 40px;
+  outline: none;
+  color: #fff;
+  background-color: #27ccc0;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+}
+
+.item-text {
+  margin: 0px;
+  float: left;
+  font-weight: 500;
+  padding: 6px 0px;
+}
+
+.comment-number {
+  margin: 5px 0px 0px 10px;
+  color: #fff;
+  border-radius: 15px;
+  background-color: #27ccc0;
+  float: left;
+  width: 45px;
+  height: 25px;
+  font-weight: 500;
+}
+
+.comment-number span {
+  display: block;
+  padding-top: 1px;
+  text-align: center;
+}
+
+.item-del {
+  width: 21%;
+  height: 35px;
+  float: right;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ff3951;
+  color: #ff3951;
+  outline: none;
+}
+
+.item-container {
+  overflow: hidden;
+  padding: 10px 0px;
+  border-bottom: 2px solid #f9f9f9;
+}
+
+.comment {
+  margin: 10px 0px;
+  overflow: hidden;
+}
+
+.comment-image {
+  float: left;
+  width: 70px;
+  height: 70px;
+  background-color: #ff8a00;
+}
+
+.comment:nth-child(2n) .comment-image{
+  background-color: #47568c;
+}
+
+.comment-text {
+  float: right;
+  width: 75%;
+  margin: 0px;
+  font-size: 12px;
+}
+
+.comment-input-container .comment-image {
+  background-color: #e6e6e6;
+}
+
+.comment-input-container .comment-text textarea {
+  width: 100%;
+  height: 90px;
+  outline: none;
+  border: 1px solid #ccc;
 }
 
 /* ===============
@@ -154,6 +270,10 @@ textarea {
    Helper classes
    ========================================================================== */
 
+.container {
+  padding: 20px;
+}
+
 .right {
   float: right;
 }
@@ -176,16 +296,6 @@ textarea {
     padding: 0;
     position: absolute;
     width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
 }
 
 .invisible {

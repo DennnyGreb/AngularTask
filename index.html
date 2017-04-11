@@ -25,10 +25,53 @@
         </aside>
 
         <section class="main-section">
-            <div class="card left"></div>
-            <div class="card right"></div>
+          <div class="card left">
+            <h1 class="main-header">Items</h1>
+            <div class="container">
+              <div class="input-container">
+                <input type="text" placeholder="Type name here..." class="item-input"/>
+                <button type="button" class="item-add">Add new</button>
+              </div>
+              <div class="item-container">
+                <p class="item-text">First item custom name</p>
+                <div class="comment-number"><span>132</span></div>
+                <button type="button" class="item-del">Delete</button>
+              </div>
+              <div class="item-container">
+                <p class="item-text">First item custom name</p>
+                <div class="comment-number"><span>132</span></div>
+                <button type="button" class="item-del">Delete</button>
+              </div>
+            </div>
+          </div>
+          <div class="card right">
+            <h1 class="main-header">Comments</h1>
+            <div class="container">
+              <div class="comments-container">
+                <div class="comment">
+                  <div class="comment-image"></div>
+                  <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div class="comment">
+                  <div class="comment-image"></div>
+                  <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+              <div class="comment-input-container">
+                <div class="comment-image"></div>
+                <p class="comment-text">
+                  <textarea class="comment-textarea"></textarea>
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
+        <script src="js/angular.min.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
