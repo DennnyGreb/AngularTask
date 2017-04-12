@@ -3,6 +3,12 @@ var app = angular.module('mainApp', []);
 
 app.controller('mainCtrl', function() {
 
+    this.counter = 2;
+
+    this.increaseCounter = function() {
+        this.counter += 1;
+    }
+
     this.setCtrlItems = function() {
         this.items = JSON.parse(localStorage.getItem("items"));
     }
@@ -13,12 +19,11 @@ app.controller('mainCtrl', function() {
 
     function initFunc() {
         var oldItems = this.getLSItems();
-        if(oldItems) {
-            oldItems.push(
-                { itemText: "Example item...", commentNumber: 132 },
-                { itemText: "Another example item...", commentNumber: 34 }
-            );
-            var newItems = oldItems;
+        if(!oldItems) {
+            var newItems = [
+                { itemText: "Example item...", index: 1, commentNumber: 132 },
+                { itemText: "Another example item...", index: 2, commentNumber: 34 }
+            ];
             localStorage.setItem("items", JSON.stringify(newItems));
         }
         this.setCtrlItems();
@@ -27,24 +32,28 @@ app.controller('mainCtrl', function() {
     initFunc.apply(this);
 
     this.addItem = function(item) {
+        this.increaseCounter();
         var oldItems = this.getLSItems();
         if(oldItems) {
-            oldItems.push({ itemText: item });
+            oldItems.push({ itemText: item, index: this.counter });
             var newItems = oldItems;
             localStorage.setItem("items", JSON.stringify(newItems));
         }
         else {
-            var newItems = [{ itemText: item }];
+            var newItems = [{ itemText: item, index: this.counter }];
             localStorage.setItem("items", JSON.stringify(newItems));
         }
         this.setCtrlItems();
     }
 
-    this.deleteItem = function(item) {
+    this.deleteItem = function(index) {
         var oldItems = this.getLSItems();
         if(oldItems) {
-            var index = oldItems.indexOf(item);
-            oldItems.splice(index, 1);
+            for(var i = 0; i < oldItems.length; i++) {
+                if(oldItems[i].index == index) {
+                    oldItems.splice(i, 1);
+                }
+            }
             var newItems = oldItems;
             localStorage.setItem("items", JSON.stringify(newItems));
         }

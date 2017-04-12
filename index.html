@@ -35,7 +35,7 @@
                 <div data-ng-repeat="item in mainCtrl.items" data-on-click="myCtrl.itemClick()" class="item-container">
                     <p class="item-text"> {{ item.itemText }} </p>
                     <div class="comment-number"><span> {{ item.commentNumber }} </span></div>
-                    <button data-ng-click="mainCtrl.deleteItem(item)" type="button" class="item-del">Delete</button>
+                    <button data-ng-click="mainCtrl.deleteItem(item.index)" type="button" class="item-del">Delete</button>
                 </div>
             </div>
         </div>
