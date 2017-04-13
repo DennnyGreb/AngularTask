@@ -32,41 +32,35 @@
                     <input data-ng-model="item" type="text" placeholder="Type name here..." class="item-input"/>
                     <button data-ng-click="mainCtrl.addItem(item)" type="button" class="item-add">Add new</button>
                 </div>
-                <div data-ng-repeat="item in mainCtrl.items" data-on-click="myCtrl.itemClick()" class="item-container">
+                <!--myCtrl.selectItem($event)-->
+                <div data-ng-repeat="item in mainCtrl.items" data-ng-click="mainCtrl.selectItem($event, item)" class="item-container">
                     <p class="item-text"> {{ item.itemText }} </p>
                     <div class="comment-number"><span> {{ item.commentNumber }} </span></div>
                     <button data-ng-click="mainCtrl.deleteItem(item.index)" type="button" class="item-del">Delete</button>
                 </div>
             </div>
         </div>
-        <div class="card right">
+        <div class="card right" data-ng-controller="commentCtrl">
             <h1 class="main-header">Comments</h1>
             <div class="container">
                 <div class="comments-container">
-                    <div class="comment">
+                    <div data-ng-repeat="comment in commentCtrl.commentsOfItem" class="comment">
                         <div class="comment-image"></div>
-                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <div class="comment">
-                            <div class="comment-image"></div>
-                            <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="comment-input-container">
-                            <div class="comment-image"></div>
-                            <p class="comment-text">
-                                <textarea class="comment-textarea"></textarea>
-                            </p>
-                        </div>
+                        <p class="comment-text">{{ comment }}</p>
                     </div>
                 </div>
-            </section>
+                <div class="comment-input-container">
+                    <div class="comment-image"></div>
+                    <p class="comment-text">
+                        <textarea class="comment-textarea"></textarea>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
             <script src="js/angular.min.js"></script>
             <script src="js/mainCtrl.js"></script>
+            <script src="js/commentCtrl.js"></script>
         </body>
         </html>

@@ -210,6 +210,7 @@ textarea {
 }
 
 .item-container {
+  cursor: pointer;
   overflow: hidden;
   padding: 10px 0px;
   border-bottom: 2px solid #f9f9f9;
@@ -247,6 +248,10 @@ textarea {
   height: 90px;
   outline: none;
   border: 1px solid #ccc;
+}
+
+.active-item {
+  color: red;
 }
 
 /* ===============

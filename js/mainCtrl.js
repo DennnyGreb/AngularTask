@@ -1,9 +1,10 @@
 
 var app = angular.module('mainApp', []);
 
-app.controller('mainCtrl', function() {
+app.controller('mainCtrl', function($rootScope) {
 
     this.counter = 2;
+    this.selected;
 
     this.increaseCounter = function() {
         this.counter += 1;
@@ -21,8 +22,8 @@ app.controller('mainCtrl', function() {
         var oldItems = this.getLSItems();
         if(!oldItems) {
             var newItems = [
-                { itemText: "Example item...", index: 1, commentNumber: 132 },
-                { itemText: "Another example item...", index: 2, commentNumber: 34 }
+                { itemText: "Example item...", index: 1, commentNumber: 132, comments: ["Blablabla", "Hahaha"] },
+                { itemText: "Another example item...", index: 2, commentNumber: 34, comments: ["1111Blablabla", "2222Hahaha"] }
             ];
             localStorage.setItem("items", JSON.stringify(newItems));
         }
@@ -60,4 +61,12 @@ app.controller('mainCtrl', function() {
         this.setCtrlItems();
     }
 
+    this.selectItem = function(event, item) {
+        if(this.selected) {
+            this.selected.classList.remove("active-item");
+        }
+        this.selected = event.target;
+        this.selected.classList.add("active-item");
+        $rootScope.$broadcast('item-clicked', { index: item.index });
+    }
 });
