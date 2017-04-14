@@ -22,8 +22,8 @@ app.controller('mainCtrl', function($rootScope) {
         var oldItems = this.getLSItems();
         if(!oldItems) {
             var newItems = [
-                { itemText: "Example item...", index: 1, commentNumber: 132, comments: ["Blablabla", "Hahaha"] },
-                { itemText: "Another example item...", index: 2, commentNumber: 34, comments: ["1111Blablabla", "2222Hahaha"] }
+                { itemText: "Example item...", index: 1, commentNumber: 2, comments: ["Blablabla", "Hahaha"] },
+                { itemText: "Another example item...", index: 2, commentNumber: 2, comments: ["1111Blablabla", "2222Hahaha"] }
             ];
             localStorage.setItem("items", JSON.stringify(newItems));
         }
@@ -36,28 +36,29 @@ app.controller('mainCtrl', function($rootScope) {
         this.increaseCounter();
         var oldItems = this.getLSItems();
         if(oldItems) {
-            oldItems.push({ itemText: item, index: this.counter });
+            oldItems.push({ itemText: item, commentNumber: 0,  index: this.counter, comments: [] });
             var newItems = oldItems;
             localStorage.setItem("items", JSON.stringify(newItems));
         }
         else {
-            var newItems = [{ itemText: item, index: this.counter }];
+            var newItems = [{ itemText: item, commentNumber: 0, index: this.counter, comments: [] }];
             localStorage.setItem("items", JSON.stringify(newItems));
         }
         this.setCtrlItems();
     }
 
-    this.deleteItem = function(index) {
+    this.deleteItem = function(item) {
         var oldItems = this.getLSItems();
         if(oldItems) {
             for(var i = 0; i < oldItems.length; i++) {
-                if(oldItems[i].index == index) {
+                if(oldItems[i].index == item.index) {
                     oldItems.splice(i, 1);
                 }
             }
             var newItems = oldItems;
             localStorage.setItem("items", JSON.stringify(newItems));
         }
+        $rootScope.$broadcast('item-deleted', { item: item });
         this.setCtrlItems();
     }
 
@@ -67,6 +68,6 @@ app.controller('mainCtrl', function($rootScope) {
         }
         this.selected = event.target;
         this.selected.classList.add("active-item");
-        $rootScope.$broadcast('item-clicked', { index: item.index });
+        $rootScope.$broadcast('item-clicked', { item: item });
     }
 });

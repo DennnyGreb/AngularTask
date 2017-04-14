@@ -36,23 +36,25 @@
                 <div data-ng-repeat="item in mainCtrl.items" data-ng-click="mainCtrl.selectItem($event, item)" class="item-container">
                     <p class="item-text"> {{ item.itemText }} </p>
                     <div class="comment-number"><span> {{ item.commentNumber }} </span></div>
-                    <button data-ng-click="mainCtrl.deleteItem(item.index)" type="button" class="item-del">Delete</button>
+                    <button data-ng-click="mainCtrl.deleteItem(item)" type="button" class="item-del">Delete</button>
                 </div>
             </div>
         </div>
-        <div class="card right" data-ng-controller="commentCtrl">
+        <div class="card right" data-ng-controller="commentCtrl as commentCtrl">
             <h1 class="main-header">Comments</h1>
-            <div class="container">
-                <div class="comments-container">
-                    <div data-ng-repeat="comment in commentCtrl.commentsOfItem" class="comment">
+            <h2 data-ng-show="!commentCtrl.currentItem" class="comments-label">Greetings! Choose or add item to start.</h2>
+            <div data-ng-show="commentCtrl.currentItem" class="container">
+                <div data-ng-show="commentCtrl.commentsOfItem" class="comments-container">
+                    <div data-ng-repeat="comment in commentCtrl.commentsOfItem track by $index" class="comment">
                         <div class="comment-image"></div>
                         <p class="comment-text">{{ comment }}</p>
                     </div>
                 </div>
-                <div class="comment-input-container">
+                <div data-ng-show="commentCtrl.currentItem" class="comment-input-container">
                     <div class="comment-image"></div>
                     <p class="comment-text">
-                        <textarea class="comment-textarea"></textarea>
+                        <textarea data-ng-model="commentCtrl.commentText" class="comment-textarea"></textarea>
+                        <button data-ng-show="commentCtrl.commentText" data-ng-click="commentCtrl.setComment(commentCtrl.commentText, $event)" class="comment-submit">Add Comment</button>
                     </p>
                 </div>
             </div>

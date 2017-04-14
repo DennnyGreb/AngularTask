@@ -254,6 +254,11 @@ textarea {
   color: red;
 }
 
+.comments-label {
+  color: #27CCC0;
+  text-align: center;
+}
+
 /* ===============
     ALL: IE Fixes
    =============== */
