@@ -32,12 +32,12 @@
                     <input data-ng-model="item" type="text" placeholder="Type name here..." class="item-input"/>
                     <button data-ng-click="mainCtrl.addItem(item)" type="button" class="item-add">Add new</button>
                 </div>
-                <!--myCtrl.selectItem($event)-->
-                <div data-ng-repeat="item in mainCtrl.items" data-ng-click="mainCtrl.selectItem($event, item)" class="item-container">
-                    <p class="item-text"> {{ item.itemText }} </p>
-                    <div class="comment-number"><span> {{ item.commentNumber }} </span></div>
-                    <button data-ng-click="mainCtrl.deleteItem(item)" type="button" class="item-del">Delete</button>
-                </div>
+            </div>
+            <div data-ng-repeat="item in mainCtrl.items" data-ng-click="mainCtrl.selectItem($event, item)" class="item-container">
+                <div class="red-border"></div>
+                <p class="item-text"> {{ item.itemText }} </p>
+                <div class="comment-number"><span> {{ item.commentNumber }} </span></div>
+                <button data-ng-click="mainCtrl.deleteItem(item)" type="button" class="item-del">Delete</button>
             </div>
         </div>
         <div class="card right" data-ng-controller="commentCtrl as commentCtrl">

@@ -16,9 +16,7 @@ app.controller('commentCtrl', function($scope) {
         return null;
     }
 
-    this.setComment = function(comment, $event) {
-        console.log(this.currentItem);
-        console.log($event.target);
+    this.setComment = function(comment) {
         this.currentItem.comments.push(comment);
         var items = JSON.parse(localStorage.getItem("items"));
         for(var i = 0; i < items.length; i++) {
@@ -29,20 +27,22 @@ app.controller('commentCtrl', function($scope) {
         }
         localStorage.setItem("items", JSON.stringify(items));
         $scope.$parent.mainCtrl.setCtrlItems();
+        this.commentText = '';
     }
 
     $scope.$on('item-clicked', function(event, args) {
         var item = this.getItemByIndex(args.item.index);
         this.commentsOfItem = item.comments;
         this.currentItem = item;
+        this.commentText = '';
     }.bind(this)); 
     
     $scope.$on('item-deleted', function(event, args) {
-        console.log("in deleting");
-        console.log(this.currentItem);
-        if(this.currentItem.index == args.item.index) {
-            this.currentItem = null;
-            console.log("Deleted");
+        var item = args.item;
+        if(item && this.currentItem) {
+            if(this.currentItem.index == item.index) {
+                this.currentItem = null;
+            }
         }
     }.bind(this)); 
     
