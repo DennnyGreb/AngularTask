@@ -29,12 +29,10 @@ app.controller('commentCtrl', function($scope) {
         localStorage.setItem("items", JSON.stringify(items));
         $scope.$parent.mainCtrl.setCtrlItems();
         this.commentText = '';
-        //сonsole.log("current element id: " + this.currentItem);
     }
 
     $scope.$on('item-clicked', function(event, args) {
         var item = this.getItemByIndex(args.item.index);
-        console.log(item);
         this.commentsOfItem = item.comments;
         this.currentItem = item;
         this.commentText = '';

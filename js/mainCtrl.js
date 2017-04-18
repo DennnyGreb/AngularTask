@@ -76,7 +76,6 @@ app.controller('mainCtrl', function($rootScope, $document) {
 
     this.selectItem = function(event, item) {
         var element = event.currentTarget;
-        console.log(item);
         if(this.selected) {
             this.selected.classList.remove("active-item");
         }
