@@ -2,20 +2,18 @@
 var app = angular.module('mainApp', []);
 
 app.controller('mainCtrl', function($rootScope, $document) {
-
+    this.counter;
     if(!localStorage.getItem("items")) {
         this.counter = 2;
     }
     else {
-        console.log("------||||");
-        var items = localStorage.getItem("items");
+        var items = JSON.parse(localStorage.getItem("items"));
         var maxItem = items.slice(-1)[0];
         if(maxItem) {
-            console.log("------");
-            var counter = maxItem.index + 1;
+            this.counter = maxItem.index;
         }
         else {
-            var counter = 0;
+            this.counter = 0;
         }
     }
     this.selected;
